@@ -4,12 +4,13 @@ on:
   pull_request:
   push:
     branches:
-      - production
+      - production 
 jobs:
     build:
         name: 'Build 🏗️'
         runs-on: ubuntu-latest
         permissions:
+          actions: write
           # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
           contents: write
         steps:
