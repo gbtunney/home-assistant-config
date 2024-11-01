@@ -44,7 +44,7 @@ jobs:
                 author_name: Gillian Tunney
                 author_email: gbtunney@gmail.com
                 message: "style: formatting autocommit"
-                commit: '-no-verify'
+                commit: '--no-verify'
                 add: '.'
 
             - run: echo "🍏 This job's status is ${{ job.status }}."
