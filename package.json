@@ -8,7 +8,7 @@
         "dev": "pnpm build:ts --watch",
         "dev:ts": "pnpm build:ts --watch",
         "\n========== BUILD >> ==========": "",
-        "build": "pnpm build:ts && pnpm build:vite",
+                             "build": "pnpm build:ts",
         "build:ts": "pnpm exec tsc --build",
         "\n========== CLEAN >> ==========": "",
         "clean": "pnpm clean:ts && pnpm clean:build",

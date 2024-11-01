@@ -1,0 +1,45 @@
+name: 🐌 Home-assistant Config Fixer
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  pull_request:
+  push:
+    branches:
+      - production
+jobs:
+    build:
+        name: 'Build 🏗️'
+        runs-on: ubuntu-latest
+        permissions:
+          # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
+          contents: write
+        steps:
+            - run: echo 'Fixing Home-assistant Config  🐌';
+
+            - name: Checkout 🛎️
+              uses: actions/checkout@v3
+              with:
+                ref: ${{ github.head_ref }}
+
+            - name: Setup Node.js environment 🛎️
+              uses: actions/setup-node@v3.8.1
+              with:
+                  node-version: '20.11.1'
+
+            - name: Install pnpm 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+              run: |
+                  npm install -g pnpm
+                  pnpm install --no-frozen-lockfile
+
+            - name: Build & Fix 🚨
+              run: |
+                  pnpm run build && pnpm run prepare:all
+                  - run: |
+                      git status
+                      git branch
+            
+            - name: Autocommit All Changes 🛎️
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                commit_message: 'style: updated formatting' 
+                
+            - run: echo "🍏 This job's status is ${{ job.status }}."
