@@ -1,25 +1,25 @@
 name: 🐌 Home-assistant Config Fixer
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
-  pull_request:
-  push:
-    branches:
-      - production 
+    pull_request:
+    push:
+        branches:
+            - production
 jobs:
     build:
         name: 'Build 🏗️'
         runs-on: ubuntu-latest
         permissions:
-          actions: write
-          # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
-          contents: write
+            actions: write
+            # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
+            contents: write
         steps:
             - run: echo 'Fixing Home-assistant Config  🐌';
 
             - name: Checkout 🛎️
               uses: actions/checkout@v3
               with:
-                ref: ${{ github.head_ref }}
+                  ref: ${{ github.head_ref }}
 
             - name: Setup Node.js environment 🛎️
               uses: actions/setup-node@v3.8.1
@@ -37,12 +37,12 @@ jobs:
                   - run: |
                       git status
                       git branch
-            
+
             - name: Autocommit All Changes 🛎️
               uses: stefanzweifel/git-auto-commit-action@v5
               with:
-                commit_message: 'style: updated formatting' 
-                commit_options: '--no-verify'
-                push_options: '--force --no-verify'
+                  commit_message: 'style: updated formatting'
+                  commit_options: '--no-verify'
+                  push_options: '--force --no-verify'
 
             - run: echo "🍏 This job's status is ${{ job.status }}."
