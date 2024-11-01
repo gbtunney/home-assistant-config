@@ -40,6 +40,8 @@ jobs:
             
             - name: Autocommit All Changes 🛎️
               run: |
+                git config --global user.email "gbtunney@mac.com"
+                git config --global user.name "Gillian B. Tunney"
                 git add .
                 git commit -m "style: formatting autocommit" --no-verify
                 git push
