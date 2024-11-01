@@ -17,7 +17,7 @@
         "\n========== TEST >> ==========": "",
         "test": "echo '\"\\n===\\n>> Unit Test:: no test specified!'",
         "\n========== COMMIT >> ==========": "",
-        "commit": "pnpm build:ts && pnpm run prepare:all && pnpm commit:msg",
+        "commit": "pnpm build:ts && pnpm commit:msg",
         "commit:msg": "pnpm exec git commit -m ",
         "prepare:all": "pnpm run fix && pnpm run check",
         "\n========== LIFECYCLE >> ==========": "",

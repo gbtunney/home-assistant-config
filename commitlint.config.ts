@@ -6,9 +6,12 @@
 import type { UserConfig as CommitlintUserConfig } from '@commitlint/types'
 import { commitlint /*CommitlintUserConfig*/ } from '@snailicide/build-config'
 
-const Configuration: CommitlintUserConfig = commitlint.configuration([
-    'root',
-    'todo:fix disable scope',
-])
+const Configuration: CommitlintUserConfig = commitlint.configuration()
 
-export default Configuration
+const overrides: CommitlintUserConfig = {
+    rules: {
+        'scope-empty': [2, 'always'],
+    },
+}
+
+export default { ...Configuration, ...overrides }
